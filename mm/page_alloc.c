@@ -4406,7 +4406,7 @@ restart:
 	if (!ac->preferred_zoneref->zone)
 		goto nopage;
 
-	if (alloc_flags & ALLOC_KSWAPD)
+	if (gfp_mask & __GFP_KSWAPD_RECLAIM) {
 		wake_all_kswapds(order, gfp_mask, ac);
 
 	/*
